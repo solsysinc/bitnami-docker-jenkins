@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER="jenkins"
+USER="root"
 START_COMMAND="java -Duser.home=${HOME} ${JAVA_OPTS} -jar /opt/bitnami/jenkins/jenkins.war"
 
 if [[ "$(id -u)" = "0" ]]; then
