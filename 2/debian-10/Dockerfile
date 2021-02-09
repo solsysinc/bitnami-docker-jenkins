@@ -37,6 +37,10 @@ ENV BITNAMI_APP_NAME="jenkins" \
 
 EXPOSE 8080 8443 50000
 
-USER 1001
+USER root
 ENTRYPOINT [ "/app-entrypoint.sh" ]
 CMD [ "/run.sh" ]
+
+RUN echo "jenkins:x:$(id -g):" >> /etc/groups
+RUN echo "jenkins:x:1001:$(id -g):Jenkins:$JENKINS_HOME:/bin/false" >> /etc/passwd
+RUN install_packages docker.io
